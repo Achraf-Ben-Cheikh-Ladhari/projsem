@@ -1,0 +1,15 @@
+<section class="container">
+    <div class="form-group row">
+        <div class="col">
+            {{ form_start(usersForm) }}
+                <div class="mb-3">
+                    {{ form_row(usersForm.name) }}
+                    {{ form_row(usersForm.email) }}
+                    {{ form_row(usersForm.address) }}
+                    {{ form_row(usersForm.password) }}
+                    <button type="submit" class="btn btn-primary">{{ button_label|default('Modifier') }}</button>
+                </div>
+            {{ form_end(usersForm) }}
+        </div>
+    </div>
+</section>

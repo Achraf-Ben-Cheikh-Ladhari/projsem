@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Administration des Categories{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section class="row">
+            {% include "profile/_navcommande.html.twig" %}
+                <main class="col-9 border border-light bg-white p-2">
+                {% set totalPrice = 0 %}
+            {% for order in ordersD %}
+            <div class="col-12">
+                {% for product in products %}
+                {% if order.products == product %}
+                    <h3>{{product.name}}</h3>
+                {% endif %}
+                {% endfor %}
+                <p>Quantity : {{order.quantity}}</p>
+                <p>Unit Price: {{order.price / 100 }} €</p>
+                {% set totalPrice = totalPrice + ((order.price / 100)* order.quantity) %}
+            </div>
+            {% endfor %}
+            <h2>Totale</h2>
+            <p>{{ totalPrice }} €</p>
+            </main>
+        </section>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/js/images.js') }}" defer></script>
+{% endblock %}

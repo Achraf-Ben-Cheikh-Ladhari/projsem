@@ -1,0 +1,12 @@
+<section class="container">
+    <div class="form-group row">
+        <div class="col">
+            {{ form_start(categorieForm) }}
+                <div class="mb-3">
+                    {{ form_row(categorieForm.name) }}
+                    <button type="submit" class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
+                </div>
+            {{ form_end(categorieForm) }}
+        </div>
+    </div>
+</section>

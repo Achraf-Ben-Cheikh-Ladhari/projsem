@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+ <div class="container">
+        <section class="row">
+            {% include "profile/_profilenav.html.twig" %}
+            <main class="col-9 border border-light bg-white p-2">
+            <div class="col-12">
+                <h1>Modifier votre profile</h1>
+                {% include "profile/_form.html.twig" %}
+            </div>
+            </main>
+        </section>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}Accueil{% endblock %} - Ladhari Tech</title>
+		<link rel="icon"  href="/assets/images/logo.jpg" >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        {% block stylesheets %}{% endblock %}
+		<link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+
+		<!-- Fichiers JS -->
+		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
+		{% block javascripts %}{% endblock %}
+		<script src="{{ asset('assets/js/scripts.js') }}" defer></script>
+	</head>
+	<body>
+        {% include "_partials/_nav.html.twig" %}
+
+		{% include "_partials/_flash.html.twig" %}
+		
+		{% block body %}{% endblock %}
+    {% include "_partials/_footer.html.twig" %}
+	</body>
+</html>

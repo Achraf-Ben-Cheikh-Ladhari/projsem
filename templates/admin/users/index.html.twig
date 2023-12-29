@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Liste des utilisateurs{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% include "_partials/_adminnav.html.twig" %}
+            <main class="col-9 border border-light bg-white p-2">
+                <h1>Liste des utilisateurs</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom & Prénom</th>
+                            <th>Email</th>
+                            <th>Rôles</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>
+                                    {% for role in user.roles %}
+                                        {% if role == "ROLE_ADMIN" %}
+                                            {% set name = "Administrateur" %}
+                                            {% set color = "danger" %}
+                                        {% elseif role == "ROLE_PRODUCT_ADMIN" %}
+                                            {% set name = "Admin produits" %}
+                                            {% set color = "warning" %}
+                                        {% else %}
+                                            {% set name = "Membre" %}
+                                            {% set color = "success" %}
+                                        {% endif %}
+                                        <span class="badge bg-{{ color }}">{{ name }}</span>
+                                {% endfor %}
+                                </td> 
+                                {% for role in user.roles %}
+                                <td>
+                                    {% if role == "ROLE_PRODUCT_ADMIN" %}
+                                        <a href="{{ path('admin_users_edit', {id: user.id})}}" class="btn btn-success">Modifier</a>
+                                        <a href="{{ path('admin_users_delete', {id: user.id})}}" class="btn btn-danger">Delete</a>
+
+                                    {% endif %}
+                                </td>
+                                 {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </main>
+        </div>
+    </div>
+{% endblock %}

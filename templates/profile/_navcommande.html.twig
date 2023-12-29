@@ -1,0 +1,21 @@
+
+            <aside class="col-3 border border-light bg-white p-2">
+                <article class="card mb-3">
+                    <div class="card-header">
+                        Commandes
+                    </div>
+                    <div class="card-body">
+                        {% for order in orders %}
+                            <p><a href="{{ path('app_orders_show_details', {"id": order.id }) }}">{{order.reference}}</a></p>
+                        {% endfor %}
+                    </div>
+                </article>
+                <article class="card mb-3">
+                    <div class="card-header">
+                        Profile
+                    </div>
+                    <div class="card-body">
+                        <p><a href="{{ path('profile_index') }}">Retour profile</a></p>
+                    </div>
+                </article>
+            </aside>

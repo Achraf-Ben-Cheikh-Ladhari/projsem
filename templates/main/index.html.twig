@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="container">
+        <section class="row">
+            <div class="col-12">
+                <h1>Bienvenue Chez Ladhari Tech</h1>
+            </div>
+<img src="/assets/images/back.png" alt="PROMO">
+            {% for category in categories %}
+                    <div class="col-4">
+                       <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ category.name }}</h3>
+                                <a href="{{ path('categories_list', {slug: category.slug}) }}" class="btn btn-primary">Voir les produits</a>
+                            </div>
+                        </div>  
+                    </div>  
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

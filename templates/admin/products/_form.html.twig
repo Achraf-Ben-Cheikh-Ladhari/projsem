@@ -1,0 +1,18 @@
+<section class="container">
+    <div class="form-group row">
+        <div class="col">
+            {{ form_start(productForm) }}
+                <div class="mb-3">
+                    {{ form_row(productForm.name) }}
+                    {{ form_row(productForm.description) }}
+                    {{ form_row(productForm.brand) }}
+                    {{ form_row(productForm.categories) }}
+                    {{ form_row(productForm.price) }}
+                    {{ form_row(productForm.stock) }}
+                    {{ form_row(productForm.images) }}
+                    <button type="submit" class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
+                </div>
+            {{ form_end(productForm) }}
+        </div>
+    </div>
+</section>

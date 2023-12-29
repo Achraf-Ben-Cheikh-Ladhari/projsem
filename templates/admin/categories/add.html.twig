@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Administration des Categories{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section class="row">
+        {% include "_partials/_adminnav.html.twig" %}
+                <main class="col-9 border border-light bg-white p-2">
+            <div class="col-12">
+                <h1>Ajouter une Categorie</h1>
+                {% include "admin/categories/_form.html.twig" %}
+            </div>
+            </main>
+        </section>
+    </div>
+{% endblock %}
