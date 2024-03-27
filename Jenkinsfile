@@ -1,4 +1,3 @@
-CODE_CHANGE = getGitChanges()
 pipeline {
   agent any
   environment {
@@ -23,7 +22,7 @@ pipeline {
     stage("test"){
       when{
         expression{
-          BRANCH_NAME == 'dev' || BRANCH_NAME == 'test' && CODE_CHANGES == true
+          BRANCH_NAME == 'dev' || BRANCH_NAME == 'test'
         }
       }
       steps{
