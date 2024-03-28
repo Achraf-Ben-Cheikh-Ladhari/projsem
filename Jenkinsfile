@@ -18,13 +18,14 @@ pipeline {
       }
     }
 
-    stage("deploy"){
-      steps{
-        when{
+    stage("deploy"){ 
+      when{
           express{
             params.executeTests
           }
         }
+      steps{
+       
         echo 'Deploy the application...'
         echo "Deploy version ${params.VERSION}"
         
