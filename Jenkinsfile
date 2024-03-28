@@ -20,7 +20,7 @@ pipeline {
 
     stage("deploy"){ 
       when{
-          express{
+          expression{
             params.executeTests
           }
         }
